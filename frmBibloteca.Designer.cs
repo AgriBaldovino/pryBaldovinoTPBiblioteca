@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBiblioteca));
             this.cmdSalir = new System.Windows.Forms.Button();
             this.cmdAnterior = new System.Windows.Forms.Button();
             this.cmdSiguiente = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCod = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.lblCodEdito = new System.Windows.Forms.Label();
+            this.lblCodAutor = new System.Windows.Forms.Label();
+            this.lblCodDistr = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblCodigoDistribuidor = new System.Windows.Forms.Label();
             this.lblCodigoAutor = new System.Windows.Forms.Label();
@@ -45,9 +46,9 @@
             // 
             // cmdSalir
             // 
-            this.cmdSalir.Location = new System.Drawing.Point(13, 175);
+            this.cmdSalir.Location = new System.Drawing.Point(177, 175);
             this.cmdSalir.Name = "cmdSalir";
-            this.cmdSalir.Size = new System.Drawing.Size(56, 23);
+            this.cmdSalir.Size = new System.Drawing.Size(60, 23);
             this.cmdSalir.TabIndex = 0;
             this.cmdSalir.Text = "Salir";
             this.cmdSalir.UseVisualStyleBackColor = true;
@@ -55,9 +56,9 @@
             // 
             // cmdAnterior
             // 
-            this.cmdAnterior.Location = new System.Drawing.Point(75, 175);
+            this.cmdAnterior.Location = new System.Drawing.Point(239, 175);
             this.cmdAnterior.Name = "cmdAnterior";
-            this.cmdAnterior.Size = new System.Drawing.Size(55, 23);
+            this.cmdAnterior.Size = new System.Drawing.Size(60, 23);
             this.cmdAnterior.TabIndex = 1;
             this.cmdAnterior.Text = "Anterior";
             this.cmdAnterior.UseVisualStyleBackColor = true;
@@ -65,7 +66,7 @@
             // 
             // cmdSiguiente
             // 
-            this.cmdSiguiente.Location = new System.Drawing.Point(136, 175);
+            this.cmdSiguiente.Location = new System.Drawing.Point(300, 175);
             this.cmdSiguiente.Name = "cmdSiguiente";
             this.cmdSiguiente.Size = new System.Drawing.Size(60, 23);
             this.cmdSiguiente.TabIndex = 2;
@@ -73,50 +74,50 @@
             this.cmdSiguiente.UseVisualStyleBackColor = true;
             this.cmdSiguiente.Click += new System.EventHandler(this.cmdSiguiente_Click);
             // 
-            // label1
+            // lblCod
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Codigo";
+            this.lblCod.AutoSize = true;
+            this.lblCod.Location = new System.Drawing.Point(12, 9);
+            this.lblCod.Name = "lblCod";
+            this.lblCod.Size = new System.Drawing.Size(40, 13);
+            this.lblCod.TabIndex = 3;
+            this.lblCod.Text = "Codigo";
             // 
-            // label2
+            // lblNom
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Nombre del libro";
+            this.lblNom.AutoSize = true;
+            this.lblNom.Location = new System.Drawing.Point(12, 43);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(83, 13);
+            this.lblNom.TabIndex = 4;
+            this.lblNom.Text = "Nombre del libro";
             // 
-            // label3
+            // lblCodEdito
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Codigo editorial";
+            this.lblCodEdito.AutoSize = true;
+            this.lblCodEdito.Location = new System.Drawing.Point(12, 77);
+            this.lblCodEdito.Name = "lblCodEdito";
+            this.lblCodEdito.Size = new System.Drawing.Size(79, 13);
+            this.lblCodEdito.TabIndex = 5;
+            this.lblCodEdito.Text = "Codigo editorial";
             // 
-            // label4
+            // lblCodAutor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Codigo autor";
+            this.lblCodAutor.AutoSize = true;
+            this.lblCodAutor.Location = new System.Drawing.Point(12, 111);
+            this.lblCodAutor.Name = "lblCodAutor";
+            this.lblCodAutor.Size = new System.Drawing.Size(67, 13);
+            this.lblCodAutor.TabIndex = 6;
+            this.lblCodAutor.Text = "Codigo autor";
             // 
-            // label5
+            // lblCodDistr
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Codigo distribuidor";
+            this.lblCodDistr.AutoSize = true;
+            this.lblCodDistr.Location = new System.Drawing.Point(12, 145);
+            this.lblCodDistr.Name = "lblCodDistr";
+            this.lblCodDistr.Size = new System.Drawing.Size(93, 13);
+            this.lblCodDistr.TabIndex = 7;
+            this.lblCodDistr.Text = "Codigo distribuidor";
             // 
             // lblCodigo
             // 
@@ -124,8 +125,9 @@
             this.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCodigo.Location = new System.Drawing.Point(58, 8);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(138, 19);
+            this.lblCodigo.Size = new System.Drawing.Size(302, 19);
             this.lblCodigo.TabIndex = 12;
+            this.lblCodigo.Click += new System.EventHandler(this.lblCodigo_Click);
             // 
             // lblCodigoDistribuidor
             // 
@@ -133,7 +135,7 @@
             this.lblCodigoDistribuidor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCodigoDistribuidor.Location = new System.Drawing.Point(111, 144);
             this.lblCodigoDistribuidor.Name = "lblCodigoDistribuidor";
-            this.lblCodigoDistribuidor.Size = new System.Drawing.Size(85, 19);
+            this.lblCodigoDistribuidor.Size = new System.Drawing.Size(249, 19);
             this.lblCodigoDistribuidor.TabIndex = 13;
             // 
             // lblCodigoAutor
@@ -142,7 +144,7 @@
             this.lblCodigoAutor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCodigoAutor.Location = new System.Drawing.Point(85, 110);
             this.lblCodigoAutor.Name = "lblCodigoAutor";
-            this.lblCodigoAutor.Size = new System.Drawing.Size(111, 19);
+            this.lblCodigoAutor.Size = new System.Drawing.Size(275, 19);
             this.lblCodigoAutor.TabIndex = 14;
             // 
             // lblCodigoEditorial
@@ -151,7 +153,7 @@
             this.lblCodigoEditorial.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCodigoEditorial.Location = new System.Drawing.Point(97, 76);
             this.lblCodigoEditorial.Name = "lblCodigoEditorial";
-            this.lblCodigoEditorial.Size = new System.Drawing.Size(99, 19);
+            this.lblCodigoEditorial.Size = new System.Drawing.Size(263, 19);
             this.lblCodigoEditorial.TabIndex = 15;
             // 
             // lblNombreLibro
@@ -160,27 +162,28 @@
             this.lblNombreLibro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblNombreLibro.Location = new System.Drawing.Point(101, 37);
             this.lblNombreLibro.Name = "lblNombreLibro";
-            this.lblNombreLibro.Size = new System.Drawing.Size(95, 19);
+            this.lblNombreLibro.Size = new System.Drawing.Size(259, 19);
             this.lblNombreLibro.TabIndex = 16;
             // 
             // frmBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(209, 205);
+            this.ClientSize = new System.Drawing.Size(372, 204);
             this.Controls.Add(this.lblNombreLibro);
             this.Controls.Add(this.lblCodigoEditorial);
             this.Controls.Add(this.lblCodigoAutor);
             this.Controls.Add(this.lblCodigoDistribuidor);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCodDistr);
+            this.Controls.Add(this.lblCodAutor);
+            this.Controls.Add(this.lblCodEdito);
+            this.Controls.Add(this.lblNom);
+            this.Controls.Add(this.lblCod);
             this.Controls.Add(this.cmdSiguiente);
             this.Controls.Add(this.cmdAnterior);
             this.Controls.Add(this.cmdSalir);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBiblioteca";
             this.Text = "Biblioteca";
             this.Load += new System.EventHandler(this.frmBiblioteca_Load);
@@ -194,11 +197,11 @@
         private System.Windows.Forms.Button cmdSalir;
         private System.Windows.Forms.Button cmdAnterior;
         private System.Windows.Forms.Button cmdSiguiente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCod;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.Label lblCodEdito;
+        private System.Windows.Forms.Label lblCodAutor;
+        private System.Windows.Forms.Label lblCodDistr;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblCodigoDistribuidor;
         private System.Windows.Forms.Label lblCodigoAutor;

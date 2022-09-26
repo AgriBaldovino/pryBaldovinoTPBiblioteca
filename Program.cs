@@ -16,7 +16,7 @@ namespace pryBaldovinoTPBiblioteca
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBiblioteca());
+            Application.Run(new frmConsulta());
         }
     }
 }

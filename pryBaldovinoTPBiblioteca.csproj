@@ -52,19 +52,19 @@
     <Compile Include="frmBibloteca.Designer.cs">
       <DependentUpon>frmBibloteca.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsulta.cs">
+    <Compile Include="frmConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsulta.Designer.cs">
-      <DependentUpon>FrmConsulta.cs</DependentUpon>
+    <Compile Include="frmConsulta.Designer.cs">
+      <DependentUpon>frmConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBibloteca.resx">
       <DependentUpon>frmBibloteca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsulta.resx">
-      <DependentUpon>FrmConsulta.cs</DependentUpon>
+    <EmbeddedResource Include="frmConsulta.resx">
+      <DependentUpon>frmConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
