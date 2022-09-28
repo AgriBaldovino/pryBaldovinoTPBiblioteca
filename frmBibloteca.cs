@@ -13,15 +13,15 @@ namespace pryBaldovinoTPBiblioteca
 {
     public partial class frmBiblioteca : Form
     {
-        //var publicas
-        public string[,] Libro = new string[20, 5];
-        int iRecorrido = 0;
-        char separador = Convert.ToChar(",");
-
         public frmBiblioteca()
         {
             InitializeComponent();
         }
+
+        //var publicas
+        public string[,] Libro = new string[21, 5];
+        int iRecorrido = 0;
+        char separador = Convert.ToChar(",");
 
         private void frmBiblioteca_Load(object sender, EventArgs e)
         {
@@ -29,28 +29,28 @@ namespace pryBaldovinoTPBiblioteca
 
             StreamReader lectorLibro = new StreamReader("./LIBRO.txt");
 
-            while (!lectorLibro.EndOfStream)
+            while (!lectorLibro.EndOfStream && i < 21)
             {
                 string[] VecLibro = lectorLibro.ReadLine().Split(separador);
                 //separador dentro del vector
 
-                if (i < 20)
-                {
-                    //cargamos lo de la matriz al vector libro
-                    Libro[i, 0] = VecLibro[0];
-                    Libro[i, 1] = VecLibro[1];
-                    Libro[i, 2] = VecLibro[2];
-                    Libro[i, 3] = VecLibro[3];
-                    Libro[i, 4] = VecLibro[4];
-                    //llamamos a los procedimientos que utilizamos
-                    busquedaNombreEditorial(i);
-                    busquedaNombreDistribuidor(i);
-                    i++;
-                }
+                //cargamos lo de la matriz al vector libro
+                Libro[i, 0] = VecLibro[0];
+                Libro[i, 1] = VecLibro[1];
+                Libro[i, 2] = VecLibro[2];
+                Libro[i, 3] = VecLibro[3];
+                Libro[i, 4] = VecLibro[4];
+
+                //llamamos a los procedimientos que utilizamos
+                busquedaNombreEditorial(i);
+
+                busquedaNombreDistribuidor(i);
+
+                i++;
             }
+            lectorLibro.Close();
 
             //mostramos lo que esta en la matriz
-            lectorLibro.Close();
             lblCodigo.Text = Libro[0, 0];
             lblNombreLibro.Text = Libro[0, 1];
             lblCodigoEditorial.Text = Libro[0, 2];
@@ -58,8 +58,8 @@ namespace pryBaldovinoTPBiblioteca
             lblCodigoDistribuidor.Text = Libro[0, 4];
             //desabilitamos el boton de retroceso
             cmdAnterior.Enabled = false;
-
         }
+
 
         private void busquedaNombreEditorial(int busquedaNombreEditorial)
         {
@@ -81,32 +81,27 @@ namespace pryBaldovinoTPBiblioteca
             lectorEditorial.Close();
         }
 
-        private void cmdSalir_Click(object sender, EventArgs e)
+
+        private void busquedaNombreDistribuidor(int busquedaNombreDistribuidor)
         {
-            this.Close();
-        }
+            //leemos el archivo
+            StreamReader lectorDistribuidor = new StreamReader("./DISTRIBUIDORA.txt");
 
-        //para que lea adentro del vector
-        
-        private void cmdSiguiente_Click(object sender, EventArgs e)
-        {
-            iRecorrido++;
-
-            lblCodigo.Text = Libro[iRecorrido, 0];
-            lblNombreLibro.Text = Libro[iRecorrido, 1];
-            lblCodigoEditorial.Text = Libro[iRecorrido, 2];
-
-            lblCodigoAutor.Text = Libro[iRecorrido, 3];
-
-
-            lblCodigoDistribuidor.Text = Libro[iRecorrido, 4];
-            cmdAnterior.Enabled = true;
-
-            if (iRecorrido == Libro.GetLength(0) - 1)
+            while (!lectorDistribuidor.EndOfStream)
             {
-                cmdSiguiente.Enabled = false;
+                //comparar el codigo del libro
+
+                string[] vecDistribuidor = lectorDistribuidor.ReadLine().Split(separador);
+                //se cambia el codigo por el nombre correspondiente
+                if (vecDistribuidor[0] == Libro[busquedaNombreDistribuidor, 4])
+                {
+                    Libro[busquedaNombreDistribuidor, 4] = vecDistribuidor[1];//se sobre escribe el nombre de la distribuidor
+                }
             }
+
+            lectorDistribuidor.Close();
         }
+
 
         private void cmdAnterior_Click(object sender, EventArgs e)
         {
@@ -123,32 +118,40 @@ namespace pryBaldovinoTPBiblioteca
                 {
                     cmdAnterior.Enabled = false;
                 }
-
             }
             else
             {
                 cmdAnterior.Enabled = false;
             }
         }
-        private void busquedaNombreDistribuidor(int busquedaNombreDistribuidor)
+
+
+        private void cmdSiguiente_Click(object sender, EventArgs e)
         {
-            //leemos el archivo
-            StreamReader lectorDistribuidor = new StreamReader("./DISTRIBUIDORA.txt");
+            iRecorrido++;
 
-            while (!lectorDistribuidor.EndOfStream)
+            lblCodigo.Text = Libro[iRecorrido, 0];
+            lblNombreLibro.Text = Libro[iRecorrido, 1];
+            lblCodigoEditorial.Text = Libro[iRecorrido, 2];
+
+            lblCodigoAutor.Text = Libro[iRecorrido, 3];
+
+
+            lblCodigoDistribuidor.Text = Libro[iRecorrido, 4];
+            cmdAnterior.Enabled = true;
+
+            //el -1 es para que no se pase de la matriz,
+            //llega a 20 nomas pq si llegara a 21 se romperia el programa
+            if (iRecorrido == Libro.GetLength(0) - 1)
             {
-                //comparar el codigo del libro
-
-                string[] vecDistribuidor = lectorDistribuidor.ReadLine().Split(separador);
-                //se cambia el codigo por el nombre correspondiente
-                if (vecDistribuidor[0] == Libro[busquedaNombreDistribuidor, 4])
-                {
-
-                    Libro[busquedaNombreDistribuidor, 4] = vecDistribuidor[1];//se sobre escribe el nombre de la distribuidor
-                }
+                cmdSiguiente.Enabled = false;
             }
+        }
 
-            lectorDistribuidor.Close();
+
+        private void cmdSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void lblCodigo_Click(object sender, EventArgs e)
